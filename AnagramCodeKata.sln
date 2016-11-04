@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnagramCodeKata", "AnagramCodeKata\AnagramCodeKata.csproj", "{B457F533-6523-4A1D-A565-9F9EF78BE001}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnagramCodeKata.Tests", "AnagramCodeKata.Tests\AnagramCodeKata.Tests.csproj", "{C37CDBA8-76CC-47C4-B75B-DE9CFD986DAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B457F533-6523-4A1D-A565-9F9EF78BE001}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B457F533-6523-4A1D-A565-9F9EF78BE001}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B457F533-6523-4A1D-A565-9F9EF78BE001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C37CDBA8-76CC-47C4-B75B-DE9CFD986DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C37CDBA8-76CC-47C4-B75B-DE9CFD986DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C37CDBA8-76CC-47C4-B75B-DE9CFD986DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C37CDBA8-76CC-47C4-B75B-DE9CFD986DAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

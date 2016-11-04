@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnagramCodeKata
 {
@@ -16,7 +14,24 @@ namespace AnagramCodeKata
 
         static void Main(string[] args)
         {
-            
+            var words = File.ReadAllLines("wordlist.txt").ToList();
+
+            var anagrams = new List<string>();
+            foreach (var currentWord in words)
+            {
+                string anagramString = currentWord;
+
+                foreach (var wordToTest in words)
+                {
+                    if (currentWord != wordToTest && currentWord.IsAnagramOf(wordToTest))
+                        anagramString += " " + wordToTest;
+                }
+
+                if (anagramString != currentWord)
+                    anagrams.Add(anagramString);
+            }
+
+            anagrams.ForEach(Console.WriteLine);
         }
     }
 }

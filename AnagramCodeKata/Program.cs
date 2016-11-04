@@ -14,24 +14,34 @@ namespace AnagramCodeKata
 
         static void Main(string[] args)
         {
-            var words = File.ReadAllLines("smallwordlist.txt").ToList();
+            var start = DateTime.Now;
+            var words = File.ReadAllLines("wordlist.txt").ToList();
 
-            var anagrams = new List<string>();
+            var anagramsDictionary = new Dictionary<string, string>();
+
             foreach (var currentWord in words)
             {
-                string anagramString = currentWord;
+                var anagramString = currentWord;
+                var sortedAnagramString = anagramString.SortedLetters();
 
-                foreach (var wordToTest in words)
+                if (anagramsDictionary.ContainsKey(sortedAnagramString))
                 {
-                    if (currentWord != wordToTest && currentWord.IsAnagramOf(wordToTest))
-                        anagramString += " " + wordToTest;
+                    anagramsDictionary[sortedAnagramString] = anagramsDictionary[sortedAnagramString] + " " + anagramString;
                 }
-
-                if (anagramString != currentWord)
-                    anagrams.Add(anagramString);
+                else
+                {
+                    anagramsDictionary.Add(sortedAnagramString, anagramString);
+                }
+            }
+            
+            foreach (var keyValuePair in anagramsDictionary.Where(x => x.Value.Contains(" ")))
+            {
+                Console.WriteLine(keyValuePair.Value);
             }
 
-            anagrams.ForEach(Console.WriteLine);
+            var stop = DateTime.Now;
+            Console.WriteLine($"{start - stop}");
+
             Console.ReadKey();
         }
     }

@@ -14,7 +14,7 @@ namespace AnagramCodeKata
 
         static void Main(string[] args)
         {
-            var words = File.ReadAllLines("wordlist.txt").ToList();
+            var words = File.ReadAllLines("smallwordlist.txt").ToList();
 
             var anagrams = new List<string>();
             foreach (var currentWord in words)
@@ -32,6 +32,7 @@ namespace AnagramCodeKata
             }
 
             anagrams.ForEach(Console.WriteLine);
+            Console.ReadKey();
         }
     }
 }

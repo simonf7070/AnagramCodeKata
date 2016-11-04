@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AnagramCodeKata.Tests
 {
@@ -14,6 +15,17 @@ namespace AnagramCodeKata.Tests
             var isAnagram = stringOne.IsAnagramOf(stringTwo);
 
             Assert.IsTrue(isAnagram);
+        }
+
+        [TestMethod]
+        public void Given_two_strings_can_test_if_not_anagram()
+        {
+            var stringOne = "piecrustx";
+            var stringTwo = "pictures";
+
+            var isAnagram = stringOne.IsAnagramOf(stringTwo);
+
+            Assert.IsFalse(isAnagram);
         }
     }
 }

@@ -40,7 +40,50 @@ namespace AnagramCodeKata
             }
 
             var stop = DateTime.Now;
-            Console.WriteLine($"{start - stop}");
+            Console.WriteLine();
+            Console.WriteLine($"Found: {anagramsDictionary.Count(x => x.Value.Contains(" "))}");
+            Console.WriteLine($"{stop - start}");
+
+            Console.ReadKey();
+        }
+        
+        static void Main2(string[] args)
+        {
+            var start = DateTime.Now;
+            var words = File.ReadAllLines("wordlist.txt").ToList();
+
+            var possibleAnagramsDictionary = new Dictionary<string, string>();
+            var anagramsDictionary = new Dictionary<string, string>();
+
+            foreach (var currentWord in words)
+            {
+                var sortedAnagramString = currentWord.SortedLetters();
+
+                if (anagramsDictionary.ContainsKey(sortedAnagramString))
+                {
+                    anagramsDictionary[sortedAnagramString] = anagramsDictionary[sortedAnagramString] + " " + currentWord;
+                }
+                else if (possibleAnagramsDictionary.ContainsKey(sortedAnagramString))
+                {
+                    var firstValue = possibleAnagramsDictionary[sortedAnagramString];
+                    anagramsDictionary.Add(sortedAnagramString, firstValue + " " + currentWord);
+                    possibleAnagramsDictionary.Remove(sortedAnagramString);
+                }
+                else
+                {
+                    possibleAnagramsDictionary.Add(sortedAnagramString, currentWord);
+                }
+            }
+
+            foreach (var keyValuePair in anagramsDictionary)
+            {
+                Console.WriteLine(keyValuePair.Value);
+            }
+
+            var stop = DateTime.Now;
+            Console.WriteLine();
+            Console.WriteLine($"Found: {anagramsDictionary.Count}");
+            Console.WriteLine($"{stop - start}");
 
             Console.ReadKey();
         }
